@@ -5,7 +5,29 @@
     <router-link :to="{name : 'jobs'}">Jobs</router-link>
   </nav>
   <router-view/>
+  <button @click="goBack">go back</button>
+  <button @click="reDirect">redirect</button>
+  <button @click="forWard">forward</button> 
 </template>
+
+<script>
+
+export default{
+  methods :{
+    goBack(){
+      this.$router.back();
+    },
+    forWard(){
+      this.$router.forward(1);
+    },
+    reDirect(){
+      this.$router.push({name:'home'});
+    }
+  }
+}
+
+</script>
+
 
 <style>
 #app {
@@ -23,6 +45,7 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
 }
 
 nav a.router-link-exact-active {

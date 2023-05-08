@@ -1,9 +1,9 @@
 <template>
     <h1 >This is Jobs page</h1>
     <div class="job" v-for="job in jobs" :key="job.id">
-        <h2>
-            {{job.title}}
-        </h2>
+        <router-link :to="{name : 'jobsDetail', params:{id:job.id}}">
+            <h2>{{ job.title }}</h2>
+        </router-link>
     </div>
 </template>
 
@@ -36,6 +36,9 @@
 
 <style scoped>
 .job{
-    color: rgb(16, 190, 229);
+    color: red;
+}
+a{
+    text-decoration: none;
 }
 </style>
