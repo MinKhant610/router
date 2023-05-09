@@ -11,25 +11,20 @@
     export default {
         data(){
             return {
-                jobs : [
-                    {
-                        id : "1",
-                        title : "project manager",
-                        detail : "code with chill project manager"
-                    },
-                    {
-                        id : "2",
-                        title : "Software Engineer",
-                        detail : "code with chill Software Engineer"
-                    },
-                    {
-                        id : "3",
-                        title : "UI UX designer",
-                        detail : "code with chill UI UX designer"
-                    },
-                    
-                ]
+                jobs : [],
             }
+        },
+        mounted(){
+            fetch('http://localhost:3000/jobs')
+            .then((response)=>{
+                return response.json();
+            })
+            .then((datas)=>{
+                this.jobs = datas;
+            })
+            .catch((err)=>{
+                console.log(err.message());
+            })
         }
     }
 </script>
